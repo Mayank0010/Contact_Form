@@ -29,6 +29,7 @@ app.config['MAIL_SUBJECT_PREFIX'] = '[QUERY]'
 app.config['FLASK_MAIL_SENDER'] = 'ADMIN <mayank.nitt.00@gmail.com>'
 app.config['ADMIN'] = os.environ.get('ADMIN')
 
+
 mail = Mail(app)
 
 def send_async_email(app,msg):
