@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static',filename='main.css') }}">
+    <script src="{{ url_for('static',filename='index.js') }}"></script>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    {% for message in get_flashed_messages() %}
+        <div class="alert">
+            {{ message }}
+            <button type="button" class="close" onclick="msg()">&times;</button>
+        </div>
+    {% endfor %}
+    {% block content %}{% endblock %}
+</body>
+</html>
