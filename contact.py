@@ -17,7 +17,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 moment = Moment(app)
 migrate = Migrate(app, db)
 
-app.config['SECRET_KEY'] = 'hard to guess'
+app.config['SECRET_KEY'] = 'Mayank0010'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir,'data.sqlite')
 app.config['MAIL_SERVER'] = 'smtp.googlemail.com'
@@ -71,7 +71,7 @@ def index():
         db.session.commit()
         if app.config['ADMIN']:
             send_mail(app.config['ADMIN'],'New Query','mail/query',name=Name,email=Email,subj=Subj,message=Message)
-        flash('Your Query has been submitted. We will get in touch with you soon!!',category='alert')
+        flash('Your Query has been submitted. We will get in touch with you soon!!')
         return redirect(url_for('index'))
     return render_template("contact.html")
 
