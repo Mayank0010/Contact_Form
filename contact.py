@@ -4,8 +4,6 @@ from wtforms import StringField,TextAreaField, SubmitField, validators
 from wtforms.validators import DataRequired
 from wtforms import Form
 from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
-from flask_moment import Moment
 import os
 from flask_mail import Mail, Message
 from flask_migrate import Migrate
