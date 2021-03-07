@@ -12,7 +12,6 @@ from threading import Thread
 app = Flask(__name__)
 db = SQLAlchemy(app)
 basedir = os.path.abspath(os.path.dirname(__file__))
-moment = Moment(app)
 migrate = Migrate(app, db)
 
 app.config['SECRET_KEY'] = 'Mayank0010'
