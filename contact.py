@@ -71,6 +71,7 @@ def index():
         if app.config['ADMIN']:
             send_mail(app.config['ADMIN'],'New Query','mail/query',name=Name,email=Email,subj=Subj,message=Message)
         flash('Your Query has been submitted. We will get in touch with you soon!!',category='alert')
+        return redirect(url_for('index'))
     return render_template("contact.html")
 
 
