@@ -5,12 +5,14 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    {% for message in get_flashed_messages() %}
-        <div class="alert">
-            {{ message }}
-            <button type="button" class="close" onclick="msg()">&times;</button>
-        </div>
-    {% endfor %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages %}
+            <div class="{{ category }}">
+                {{ message }}
+                <button type="button" class="close" onclick="msg()">&times;</button>
+            </div>
+            {% endfor %}
+        {% endwith %}
     {% block content %}{% endblock %}
 </body>
 </html>

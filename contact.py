@@ -3,6 +3,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField,TextAreaField, SubmitField, validators
 from wtforms.validators import DataRequired
 from wtforms import Form
+from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 import os
 from flask_mail import Mail, Message
@@ -11,6 +12,7 @@ from threading import Thread
 
 app = Flask(__name__)
 db = SQLAlchemy(app)
+bootstrap = Bootstrap(app)
 basedir = os.path.abspath(os.path.dirname(__file__))
 migrate = Migrate(app, db)
 
@@ -68,8 +70,7 @@ def index():
         db.session.commit()
         if app.config['ADMIN']:
             send_mail(app.config['ADMIN'],'New Query','mail/query',name=Name,email=Email,subj=Subj,message=Message)
-        flash('Your Query has been submitted. We will get in touch with you soon!!')
-        return redirect(url_for('index'))
+        flash('Your Query has been submitted. We will get in touch with you soon!!',category='alert')
     return render_template("contact.html")
 
 
