@@ -54,7 +54,7 @@ class Query(db.Model):
     message = db.Column(db.String(200))
 
     def __repr__(self):
-        return f"Query('{self.name}' , '{self.email}' , '{self.subj}' '{self.message}')"
+        return f"Query('{self.name}' , '{self.email}' , '{self.subj}' , '{self.message}')"
         
         
 
